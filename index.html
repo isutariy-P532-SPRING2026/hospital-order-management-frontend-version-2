@@ -677,23 +677,24 @@
   }
 
   async function executeCancel() {
-    closeConfirm();
-    if (!pendingCancel) return;
-    const { orderId, clinicianName } = pendingCancel;
-    try {
-      const res = await fetch(`${API}/orders/${orderId}/cancel`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ clinicianName })
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
-      showToast(`Order ${orderId} has been cancelled`, 'error', 20000);
-      poll();
-    } catch (err) {
-      showToast(err.message || 'Failed to cancel order', 'error', 20000);
+        const cancel = pendingCancel;   
+        closeConfirm();
+        if (!cancel) return;
+        const { orderId, clinicianName } = cancel;
+        try {
+        const res = await fetch(`${API}/orders/${orderId}/cancel`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ clinicianName })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error);
+        showToast(`Order ${orderId} has been cancelled`, 'error', 20000);
+        poll();
+        } catch (err) {
+        showToast(err.message || 'Failed to cancel order', 'error', 20000);
+        }
     }
-  }
 
   // Confirm dialog button listeners
   document.getElementById('confirm-yes').addEventListener('click', executeCancel);
