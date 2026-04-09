@@ -2,11 +2,15 @@
 
 ## Live Site
 
-https://isutariy-p532-spring2026.github.io/hospital-order-management-frontend/
+<https://isutariy-p532-spring2026.github.io/hospital-order-management-frontend-version-2/>
 
 ## Backend Repo
 
-https://github.com/isutariy-P532-SPRING2026/hospital-order-management-backend
+<https://github.com/isutariy-P532-SPRING2026/hospital-order-management-backend-version-2>
+
+## Render- deployed backend
+
+<https://hospital-order-backend-p2.onrender.com/>
 
 ## Tech Stack
 
@@ -35,7 +39,7 @@ Make sure the backend is running on `http://localhost:8080`.
 In `index.html`, find this line near the top of the script:
 
 ```javascript
-const API = 'https://hospital-order-backend.onrender.com/api';
+const API = 'https://hospital-order-backend-p2.onrender.com/';
 ```
 
 Change to `http://localhost:8080/api` for local development.
